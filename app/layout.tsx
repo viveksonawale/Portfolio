@@ -13,7 +13,7 @@ const libreBaskerville = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  title: "Vivek Ramesh Sonawale | Java Full Stack Developer",
+  title: "porfolio",
   description: "Java Full-Stack Dev • Building clean backend systems & polished frontends",
   openGraph: {
     type: "website",
