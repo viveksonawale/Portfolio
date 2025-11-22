@@ -4,7 +4,6 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Chatbot } from "@/components/ui/chatbot";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const libreBaskerville = Libre_Baskerville({
@@ -53,7 +52,6 @@ export default function RootLayout({
         >
           <SmoothScroll />
           {children}
-          <Chatbot />
         </ThemeProvider>
       </body>
     </html>

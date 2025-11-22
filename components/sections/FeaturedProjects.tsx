@@ -8,20 +8,20 @@ import Image from "next/image";
 
 const featuredProjects = [
     {
-        title: "TT4D",
-        description: "Generate winning combinations, view past results, and analyze lottery trends all in one place",
-        tags: ["BS4", "Docker", "FastAPI", "Fly.io", "NextJS", "PostgreSQL", "Python", "TailwindCSS"],
-        github: "https://github.com/viveksonawale",
+        title: "AI Audio Transcriber",
+        description: "An intelligent audio transcription service powered by Spring Boot and Google Gemini. Features real-time transcription and waveform visualization.",
+        tags: ["Spring Boot", "Google Gemini API", "React", "Java", "TailwindCSS"],
+        github: "https://github.com/viveksonawale/AI-Audio-Transcriber.git",
         demo: "#",
-        image: "/project-placeholder.jpg" // You'll need to add real images
+        image: "/ai_audio_transcriber_project.png"
     },
     {
-        title: "Tradingview Telegram Alerts",
-        description: "Real-time trading alerts with chart snapshots sent to Telegram, designed to keep traders informed and responsive to market changes",
-        tags: ["Docker", "FastAPI", "Fly.io", "Python", "Selenium", "Telegram Bot API"],
-        github: "https://github.com/viveksonawale",
+        title: "Real-time Chat Application",
+        description: "A robust chat platform built with socket programming, enabling instant messaging and real-time user status updates.",
+        tags: ["Java", "Socket.IO", "React", "Node.js", "WebSockets"],
+        github: "https://github.com/viveksonawale/Chat-Application.git",
         demo: "#",
-        image: "/project-placeholder.jpg"
+        image: "/project-placeholder.jpg" // Placeholder as per user request to skip generation
     }
 ];
 
@@ -40,10 +40,12 @@ export function FeaturedProjects() {
                     {featuredProjects.map((project, index) => (
                         <Card key={index} className="flex flex-col h-full border-border/50 bg-card/30 hover:bg-card/50 transition-all duration-300 overflow-hidden group">
                             <div className="relative h-48 w-full bg-muted/50 overflow-hidden">
-                                {/* Placeholder for project image - replace with actual images */}
-                                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20 bg-secondary/20">
-                                    [Project Image]
-                                </div>
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
                             </div>
                             <CardHeader>
                                 <CardTitle className="text-xl">{project.title}</CardTitle>

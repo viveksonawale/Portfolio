@@ -39,7 +39,7 @@ export function Contact() {
     }
 
     return (
-        <section id="contact" className="py-24 relative overflow-hidden">
+        <section id="contact" className="py-12 mb-20 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-muted/20 -z-10" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-gradient-to-b from-background via-transparent to-background -z-10" />
@@ -50,14 +50,8 @@ export function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="max-w-2xl mx-auto space-y-10"
+                    className="max-w-2xl mx-auto"
                 >
-                    <div className="text-center space-y-4">
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter font-serif">Get in Touch</h2>
-                        <p className="text-lg text-muted-foreground max-w-md mx-auto">
-                            Have a project in mind or just want to say hi? I'm always open to discussing new projects, creative ideas or opportunities.
-                        </p>
-                    </div>
 
                     <Card className="border-border/50 bg-card/80 backdrop-blur-md shadow-xl overflow-hidden">
                         <CardContent className="p-0">

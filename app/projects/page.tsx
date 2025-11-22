@@ -6,7 +6,7 @@ export default function ProjectsPage() {
     return (
         <main className="flex min-h-screen flex-col bg-background">
             <Header />
-            <div className="pt-20">
+            <div className="pt-24 pb-24">
                 <Projects />
             </div>
             <Footer />

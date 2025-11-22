@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Briefcase, GraduationCap, Calendar } from "lucide-react";
+import { Briefcase, GraduationCap, Calendar, Code, Video, Book } from "lucide-react";
 
 const workExperience = [
     {
         role: "Java Developer Intern",
-        company: "Tech Company Inc.", // Placeholder if company name wasn't specified, user said "java developer intership"
+        company: "Software Development Internship", // Updated from placeholder
         period: "Jun 2025 - Jul 2025",
         description: [
             "Completed internship with hands-on experience in Spring Boot and Hibernate.",
@@ -23,32 +23,6 @@ const workExperience = [
             "Delivered high-quality video content meeting client specifications.",
         ],
     },
-    {
-        role: "Java Full Stack Developer",
-        company: "Tech Company Inc.",
-        period: "Jul 2023 - Present",
-        description: [
-            "Developed the Java backend for a bank account servicing process with multiple channel integrations.",
-            "Built a custom database migration tool using Python and MariaDB.",
-        ],
-    },
-    {
-        role: "Software Developer (Contract)",
-        company: "Singapore Institute of Technology",
-        period: "Apr 2023 - Jun 2023",
-        description: [
-            "Built NFTVue, a NFT gallery website allowing students to connect crypto wallets.",
-            "Worked on DemoConstruct, a full-stack web application using Meshroom.",
-        ],
-    },
-    {
-        role: "Software Developer (Intern)",
-        company: "DBS Bank",
-        period: "May 2022 - Dec 2022",
-        description: [
-            "Worked on the backend for the digital exchange and asset custody application using Spring Boot.",
-        ],
-    },
 ];
 
 const education = [
@@ -56,38 +30,21 @@ const education = [
         school: "Datta Megha College of Engineering",
         degree: "B.Tech in Computer Engineering",
         period: "Sep 2024 - Dec 2027 (Ongoing)",
-        logo: "/dmce-logo.png",
+        icon: "degree",
         description: [
             "Pursuing Bachelor of Technology in Computer Engineering.",
         ],
     },
     {
-        school: "Polytechnic", // User didn't specify college name for diploma, just "Diploma in information technology" and "MSBTE"
+        school: "Polytechnic",
         degree: "Diploma in Information Technology",
         period: "Jan 2021 - Jun 2024",
         grade: "90%",
         board: "MSBTE",
+        icon: "diploma",
         description: [
             "Completed Diploma with 90% aggregate.",
             "Maharashtra State Board of Technical Education (MSBTE).",
-        ],
-    },
-    {
-        school: "Digipen Institute of Technology Singapore",
-        degree: "BS in Computer Science in Real-Time Interactive Simulation",
-        period: "Sep 2019 - Apr 2023",
-        description: [
-            "Graduated with a Minor in Mathematics",
-            "President of Digipen Student Management Committee",
-            "3-time recipient of the Dean's Honor List",
-        ],
-    },
-    {
-        school: "Singapore Polytechnic",
-        degree: "Diploma in Games Design and Development",
-        period: "Apr 2014 - May 2017",
-        description: [
-            "Final Year Project",
         ],
     },
 ];
@@ -123,8 +80,12 @@ export function Experience() {
                                         className="relative pl-20"
                                     >
                                         {/* Logo/Icon on Line */}
-                                        <div className="absolute left-0 top-0 w-14 h-14 rounded-full bg-background border border-border flex items-center justify-center z-10">
-                                            <Briefcase className="w-6 h-6 text-primary" />
+                                        <div className="absolute left-0 top-0 w-14 h-14 rounded-full bg-background border-2 border-primary/20 flex items-center justify-center z-10 shadow-md group-hover:scale-110 transition-transform duration-300">
+                                            {index === 0 ? (
+                                                <Code className="w-7 h-7 text-primary" />
+                                            ) : (
+                                                <Video className="w-7 h-7 text-primary" />
+                                            )}
                                         </div>
 
                                         <div className="space-y-2">
@@ -157,13 +118,12 @@ export function Experience() {
                                         className="relative pl-20"
                                     >
                                         {/* Logo/Icon on Line */}
-                                        <div className="absolute left-0 top-0 w-14 h-14 rounded-full bg-background border border-border flex items-center justify-center z-10 overflow-hidden">
+                                        <div className="absolute left-0 top-0 w-14 h-14 rounded-full bg-background border-2 border-primary/20 flex items-center justify-center z-10 shadow-md group-hover:scale-110 transition-transform duration-300">
                                             {/* @ts-ignore */}
-                                            {item.logo ? (
-                                                /* @ts-ignore */
-                                                <img src={item.logo} alt={item.school} className="w-full h-full object-cover" />
+                                            {item.icon === "degree" ? (
+                                                <GraduationCap className="w-7 h-7 text-primary" />
                                             ) : (
-                                                <GraduationCap className="w-6 h-6 text-primary" />
+                                                <Book className="w-7 h-7 text-primary" />
                                             )}
                                         </div>
 

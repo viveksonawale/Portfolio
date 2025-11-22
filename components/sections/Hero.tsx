@@ -19,7 +19,7 @@ export function Hero() {
                     className="flex-[2] flex flex-col items-center md:items-start text-center md:text-left space-y-6"
                 >
                     <div className="space-y-3">
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight font-serif text-foreground">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
                             hi vivek here. <span className="inline-block animate-wave origin-[70%_70%]">👋</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-foreground">
