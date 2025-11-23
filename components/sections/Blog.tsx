@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "lucide-react"; // Placeholder, will use div for badge
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -35,8 +34,8 @@ const posts = [
 
 export function Blog() {
     return (
-        <section id="blog" className="py-20 bg-muted/20">
-            <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+        <section id="blog" className="py-20">
+            <div className="container mx-auto px-4 md:px-6 max-w-3xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -45,9 +44,9 @@ export function Blog() {
                     className="space-y-12"
                 >
                     <div className="flex items-center justify-between">
-                        <h2 className="text-3xl font-bold tracking-tight font-serif">my blog.</h2>
-                        <Link href="#" className="text-sm font-medium text-muted-foreground hover:text-primary flex items-center gap-1">
-                            View all <ArrowRight className="w-4 h-4" />
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-['Times_New_Roman',_serif]">my blog.</h2>
+                        <Link href="#" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group">
+                            view all <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
 
@@ -60,22 +59,24 @@ export function Blog() {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                             >
-                                <Card className="bg-card/50 hover:bg-card border-border/50 transition-colors">
+                                <Card className="bg-card/50 hover:bg-card border-border/50 transition-all duration-300 hover:shadow-lg">
                                     <CardContent className="p-6 space-y-4">
-                                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                                            <h3 className="text-xl font-bold hover:text-primary transition-colors">
-                                                <Link href={post.slug}>{post.title}</Link>
-                                            </h3>
-                                            <div className="flex items-center gap-4 text-xs text-muted-foreground whitespace-nowrap">
-                                                <span>{post.date}</span>
-                                                <span>•</span>
-                                                <span>{post.readTime}</span>
+                                        <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                                            <div className="space-y-2">
+                                                <h3 className="text-xl font-bold hover:text-primary transition-colors font-serif">
+                                                    <Link href={post.slug}>{post.title}</Link>
+                                                </h3>
+                                                <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                                                    <span>{post.date}</span>
+                                                    <span>•</span>
+                                                    <span>{post.readTime}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <p className="text-muted-foreground">{post.excerpt}</p>
+                                        <p className="text-muted-foreground text-sm leading-relaxed">{post.excerpt}</p>
                                         <div className="flex flex-wrap gap-2">
                                             {post.tags.map((tag) => (
-                                                <span key={tag} className="text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground border border-border/50">
+                                                <span key={tag} className="text-[10px] px-2 py-1 rounded-full bg-secondary/50 text-secondary-foreground border border-border/50">
                                                     {tag}
                                                 </span>
                                             ))}

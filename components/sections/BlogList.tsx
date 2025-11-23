@@ -19,8 +19,8 @@ export function BlogList({ posts }: BlogListProps) {
             transition={{ duration: 0.5 }}
             className="space-y-12 max-w-4xl mx-auto"
         >
-            <div className="space-y-4 mb-12">
-                <h1 className="text-4xl font-bold tracking-tight text-left pl-5" style={{ fontFamily: '"Times New Roman", Times, serif' }}>my blog.</h1>
+            <div className="space-y-4 mt-4 mb-12">
+                <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-left pl-5 font-['Times_New_Roman',_serif]">my blog.</h1>
             </div>
 
             <div className="grid gap-6">

@@ -1,6 +1,5 @@
 import { getPostBySlug, getAllPosts } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -18,7 +17,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
     return (
         <main className="flex min-h-screen flex-col bg-background">
-            <Header />
             <article className="container mx-auto px-4 md:px-6 py-32 max-w-3xl">
                 <Link href="/blog" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8 transition-colors">
                     <ArrowLeft className="mr-2 w-4 h-4" /> Back to Blog

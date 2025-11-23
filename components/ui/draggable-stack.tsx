@@ -24,10 +24,6 @@ export function DraggableStack() {
 
     return (
         <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            {/* Decorative background elements to match reference */}
-            <div className="absolute inset-0 bg-secondary/30 rounded-3xl rotate-6 scale-105 z-0" />
-            <div className="absolute inset-0 bg-secondary/60 rounded-3xl -rotate-3 scale-105 z-0" />
-
             <div className="relative w-full h-full z-10">
                 {cards.map((card, index) => {
                     const isTop = index === cards.length - 1;
@@ -70,14 +66,31 @@ function Card({
         }
     };
 
+    // Calculate fan positions
+    const offset = total - 1 - index; // 0 = top, 1 = 2nd, 2 = 3rd
+
+    let baseRotate = 0;
+    let baseX = 0;
+    let baseScale = 1;
+
+    if (offset === 1) {
+        baseRotate = -12; // Left tilt
+        baseX = -35; // Left peek
+        baseScale = 0.95;
+    } else if (offset === 2) {
+        baseRotate = 12; // Right tilt
+        baseX = 35; // Right peek
+        baseScale = 0.9;
+    }
+
     return (
         <m.div
             style={{
-                x: isTop ? x : 0,
-                rotate: isTop ? rotate : (index - total + 1) * 2, // Stack rotation effect
+                x: isTop ? x : baseX,
+                rotate: isTop ? rotate : baseRotate,
                 zIndex: index,
-                opacity: isTop ? opacity : 1 - (total - 1 - index) * 0.1,
-                scale: isTop ? 1 : 1 - (total - 1 - index) * 0.05,
+                opacity: isTop ? opacity : 1,
+                scale: isTop ? 1 : baseScale,
             }}
             drag={isTop ? "x" : false}
             dragConstraints={{ left: 0, right: 0 }}

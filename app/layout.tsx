@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AnimationProvider } from "@/components/providers/AnimationProvider";
+import { Header } from "@/components/layout/Header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const libreBaskerville = Libre_Baskerville({
@@ -24,7 +25,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Vivek Ramesh Sonawale | Java Full Stack Developer",
+    default: "portfolio",
     template: "%s | Vivek Ramesh Sonawale",
   },
   description: "Java Full-Stack Dev • Building clean backend systems & polished frontends. Expert in Java, Spring Boot, React, and Next.js.",
@@ -35,9 +36,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://viveksonawale.github.io/",
-    title: "Vivek Ramesh Sonawale | Java Full Stack Developer",
+    title: "portfolio",
     description: "Java Full-Stack Dev • Building clean backend systems & polished frontends. Explore my projects and skills.",
-    siteName: "Vivek Ramesh Sonawale Portfolio",
+    siteName: "portfolio",
     images: [
       {
         url: "/me-1.jpg", // Assuming this is a good representative image, or use a specific OG image if available
@@ -88,6 +89,7 @@ export default function RootLayout({
         >
           <AnimationProvider>
             <SmoothScroll />
+            <Header />
             {children}
           </AnimationProvider>
         </ThemeProvider>
