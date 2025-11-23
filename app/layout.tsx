@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AnimationProvider } from "@/components/providers/AnimationProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const libreBaskerville = Libre_Baskerville({
@@ -12,21 +13,56 @@ const libreBaskerville = Libre_Baskerville({
   variable: "--font-playfair"
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "porfolio",
-  description: "Java Full-Stack Dev • Building clean backend systems & polished frontends",
+  title: {
+    default: "Vivek Ramesh Sonawale | Java Full Stack Developer",
+    template: "%s | Vivek Ramesh Sonawale",
+  },
+  description: "Java Full-Stack Dev • Building clean backend systems & polished frontends. Expert in Java, Spring Boot, React, and Next.js.",
+  keywords: ["Vivek Sonawale", "Java Developer", "Full Stack Developer", "Spring Boot", "React", "Next.js", "Portfolio", "Software Engineer"],
+  authors: [{ name: "Vivek Ramesh Sonawale", url: "https://viveksonawale.github.io/" }],
+  creator: "Vivek Ramesh Sonawale",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://viveksonawale.github.io/",
     title: "Vivek Ramesh Sonawale | Java Full Stack Developer",
-    description: "Java Full-Stack Dev • Building clean backend systems & polished frontends",
+    description: "Java Full-Stack Dev • Building clean backend systems & polished frontends. Explore my projects and skills.",
     siteName: "Vivek Ramesh Sonawale Portfolio",
+    images: [
+      {
+        url: "/me-1.jpg", // Assuming this is a good representative image, or use a specific OG image if available
+        width: 1200,
+        height: 630,
+        alt: "Vivek Ramesh Sonawale",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vivek Ramesh Sonawale | Java Full Stack Developer",
-    description: "Java Full-Stack Dev • Building clean backend systems & polished frontends",
+    description: "Java Full-Stack Dev • Building clean backend systems & polished frontends.",
+    images: ["/me-1.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -50,8 +86,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScroll />
-          {children}
+          <AnimationProvider>
+            <SmoothScroll />
+            {children}
+          </AnimationProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { FileText, Github, Linkedin, Mail } from "lucide-react";
 import { DraggableStack } from "@/components/ui/draggable-stack";
 
@@ -12,7 +12,7 @@ export function Hero() {
             <div className="container mx-auto px-4 md:px-6 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-12 max-w-3xl">
 
                 {/* Left Column: Text */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -31,7 +31,7 @@ export function Hero() {
                     </div>
 
                     <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                        <motion.div
+                        <m.div
                             whileHover={{ scale: 1.05, y: -2 }}
                             whileTap={{ scale: 0.95 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -42,9 +42,9 @@ export function Hero() {
                                     <FileText className="w-5 h-5" />
                                 </a>
                             </Button>
-                        </motion.div>
+                        </m.div>
 
-                        <motion.div
+                        <m.div
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             whileTap={{ scale: 0.9 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -54,9 +54,9 @@ export function Hero() {
                                     <Linkedin className="w-6 h-6" />
                                 </a>
                             </Button>
-                        </motion.div>
+                        </m.div>
 
-                        <motion.div
+                        <m.div
                             whileHover={{ scale: 1.1, rotate: -5 }}
                             whileTap={{ scale: 0.9 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -66,9 +66,9 @@ export function Hero() {
                                     <Github className="w-6 h-6" />
                                 </a>
                             </Button>
-                        </motion.div>
+                        </m.div>
 
-                        <motion.div
+                        <m.div
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             whileTap={{ scale: 0.9 }}
                             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -78,19 +78,19 @@ export function Hero() {
                                     <Mail className="w-6 h-6" />
                                 </a>
                             </Button>
-                        </motion.div>
+                        </m.div>
                     </div>
-                </motion.div>
+                </m.div>
 
                 {/* Right Column: Portrait */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="flex-[1] flex justify-center relative max-w-[200px] md:max-w-[250px]"
                 >
                     <DraggableStack />
-                </motion.div>
+                </m.div>
             </div>
         </section>
     );

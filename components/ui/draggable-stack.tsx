@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { m, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 
 const initialCards = [
@@ -71,7 +71,7 @@ function Card({
     };
 
     return (
-        <motion.div
+        <m.div
             style={{
                 x: isTop ? x : 0,
                 rotate: isTop ? rotate : (index - total + 1) * 2, // Stack rotation effect
@@ -93,6 +93,6 @@ function Card({
                 className="object-cover object-top pointer-events-none" // Prevent native drag
                 priority={isTop}
             />
-        </motion.div>
+        </m.div>
     );
 }
