@@ -17,9 +17,10 @@ export function Contact() {
 
         const form = e.currentTarget;
         const data = new FormData(form);
+        data.append("access_key", "0813cf06-ad6a-4e15-b1e1-10f6b5770cee");
 
         try {
-            const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", { /* REPLACE_ME_FORMSPREE_ID */
+            const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 body: data,
                 headers: {
@@ -27,13 +28,17 @@ export function Contact() {
                 }
             });
 
-            if (response.ok) {
+            const result = await response.json();
+
+            if (result.success) {
                 setStatus("success");
                 form.reset();
             } else {
+                console.error("Web3Forms error:", result);
                 setStatus("error");
             }
         } catch (error) {
+            console.error("Submission error:", error);
             setStatus("error");
         }
     }
