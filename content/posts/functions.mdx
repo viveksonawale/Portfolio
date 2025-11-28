@@ -1,0 +1,100 @@
+---
+title: "Pass-by-Value in Java: Clearing the Biggest Beginner Misconception"
+date: "November 28, 2025"
+excerpt: "A detailed, beginner-friendly explanation of how Java passes data to methods. Includes simple code, diagrams-in-words, and clear reasoning."
+tags: ["Java", "Core Concepts", "Beginners", "DSA"]
+readTime: "6 min read"
+---
+
+# Understanding Pass-by-Value in Java
+
+If you are new to Java (or returning after a gap), one of the most confusing topics is whether Java uses **pass-by-value** or **pass-by-reference**.  
+You’ll hear people argue both sides. Some say Java behaves like pass-by-reference for objects. Others say Java is always pass-by-value.
+
+The truth is simple:
+
+> **Java is always pass-by-value.**  
+> **For objects, the value being passed is the object reference.**
+
+In this blog, we will break down exactly what that means using easy explanations and tiny examples so there’s zero confusion.
+
+---
+
+## Why this concept matters
+
+You must understand this clearly because:
+
+- It affects how data changes inside methods.
+- It impacts debugging NullPointerExceptions.
+- It helps with DSA problems involving arrays, strings, or objects.
+- It forms the foundation for Spring’s bean injection and lifecycle behavior.
+
+---
+
+## 1. What does “pass-by-value” mean?
+
+When you call a method, Java **copies** the value of the argument into the method’s parameter.
+
+That means the method gets its **own** variable, holding a **copy** of whatever you passed.
+
+This is true for both:
+
+- primitive values
+- object references
+
+But the tricky part is what is being copied.
+
+---
+
+## 2. Primitives: Pure, simple pass-by-value
+
+Primitive types store actual values:
+
+- `int`
+- `double`
+- `boolean`
+- `char`
+- etc.
+
+So when you pass them, Java copies the value directly.
+
+### Example
+
+```java
+public class PrimitiveExample {
+
+    static void changeValue(int x) {
+        x = 100;
+    }
+
+    public static void main(String[] args) {
+        int a = 10;
+        changeValue(a);
+        System.out.println(a); // Output: 10
+    }
+}
+```
+
+
+
+Her is an example on the pass by reference 
+
+### Example
+
+```java
+class Wrapper {
+    int value = 5;
+}
+
+public class Main {
+    static void modify(Wrapper obj) {
+        obj.value += 10;
+    }
+
+    public static void main(String[] args) {
+        Wrapper w = new Wrapper();
+        modify(w);
+        System.out.println(w.value); // Output: 15
+    }
+}
+```
