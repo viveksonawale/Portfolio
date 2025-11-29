@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { m, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 
+// Use 4 cards to ensure smooth cycling without repetition
 const initialCards = [
-    { id: 1, img: "/me-1.jpg" },
-    { id: 2, img: "/me-2.jpg" },
-    { id: 3, img: "/me-1.jpg" }, // Repeating for stack effect
+    { id: 1, img: "/me-2.jpg" },
+    { id: 2, img: "/me-1.jpg" },
+    { id: 3, img: "/me-2.jpg" },
+    { id: 4, img: "/me-1.jpg" },
 ];
 
 export function DraggableStack() {
@@ -29,7 +31,7 @@ export function DraggableStack() {
                     const isTop = index === cards.length - 1;
                     return (
                         <Card
-                            key={card.id + "-" + index} // Unique key
+                            key={card.id} // Stable key based on ID
                             src={card.img}
                             index={index}
                             isTop={isTop}
@@ -59,6 +61,13 @@ function Card({
     const x = useMotionValue(0);
     const rotate = useTransform(x, [-150, 150], [-18, 18]);
     const opacity = useTransform(x, [-150, 0, 150], [0, 1, 0]);
+
+    // Reset position when card is no longer top (recycled)
+    useEffect(() => {
+        if (!isTop) {
+            x.set(0);
+        }
+    }, [isTop, x]);
 
     const handleDragEnd = () => {
         if (Math.abs(x.get()) > 100) {
@@ -96,7 +105,7 @@ function Card({
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.7}
             onDragEnd={handleDragEnd}
-            className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-muted cursor-grab active:cursor-grabbing"
+            className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-muted cursor-grab active:cursor-grabbing will-change-transform"
             whileTap={{ cursor: "grabbing" }}
         >
             <Image

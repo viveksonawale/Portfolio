@@ -16,13 +16,13 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="flex-[2] flex flex-col items-center md:items-start text-center md:text-left space-y-6"
+                    className="flex-[2] flex flex-col items-center md:items-start text-center md:text-left space-y-6 will-change-transform"
                 >
                     <div className="space-y-3">
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
                             hi vivek here. <span className="inline-block animate-wave origin-[70%_70%]">👋</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-foreground">
+                        <p className="text-lg md:text-xl text-foreground">
                             20 yo software engineer from India 🇮🇳
                         </p>
                         <p className="text-lg md:text-xl text-foreground max-w-md leading-relaxed">
@@ -87,7 +87,7 @@ export function Hero() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="flex-[1] flex justify-center relative max-w-[200px] md:max-w-[250px]"
+                    className="flex-[1] flex justify-center relative max-w-[200px] md:max-w-[250px] will-change-transform"
                 >
                     <DraggableStack />
                 </m.div>
