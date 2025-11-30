@@ -94,27 +94,40 @@ function Card({
 
     return (
         <m.div
-            style={{
-                x: isTop ? x : baseX,
-                rotate: isTop ? rotate : baseRotate,
-                zIndex: index,
-                opacity: isTop ? opacity : 1,
-                scale: isTop ? 1 : baseScale,
+            initial={{ x: 50, opacity: 0, rotate: 5 }}
+            animate={{ x: 0, opacity: 1, rotate: 0 }}
+            transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: index * 0.15 + 0.2, // Staggered delay
             }}
-            drag={isTop ? "x" : false}
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.7}
-            onDragEnd={handleDragEnd}
-            className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-muted cursor-grab active:cursor-grabbing will-change-transform"
-            whileTap={{ cursor: "grabbing" }}
+            className="absolute inset-0"
+            style={{ zIndex: index }}
         >
-            <Image
-                src={src}
-                alt="Vivek Ramesh Sonawale"
-                fill
-                className="object-cover object-top pointer-events-none" // Prevent native drag
-                priority={isTop}
-            />
+            <m.div
+                style={{
+                    x: isTop ? x : baseX,
+                    rotate: isTop ? rotate : baseRotate,
+                    zIndex: index,
+                    opacity: isTop ? opacity : 1,
+                    scale: isTop ? 1 : baseScale,
+                }}
+                drag={isTop ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.7}
+                onDragEnd={handleDragEnd}
+                className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border border-border/50 bg-muted cursor-grab active:cursor-grabbing will-change-transform"
+                whileTap={{ cursor: "grabbing" }}
+            >
+                <Image
+                    src={src}
+                    alt="Vivek Ramesh Sonawale"
+                    fill
+                    className="object-cover object-top pointer-events-none" // Prevent native drag
+                    priority={isTop}
+                />
+            </m.div>
         </m.div>
     );
 }

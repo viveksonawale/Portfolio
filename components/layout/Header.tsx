@@ -18,7 +18,11 @@ export function Header() {
     const pathname = usePathname();
 
     return (
-        <header className="fixed z-50 left-0 right-0 mx-auto transition-all duration-300 
+        <motion.header
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="fixed z-50 left-0 right-0 mx-auto transition-all duration-300 
             bottom-6 md:bottom-auto md:top-6 
             max-w-[90%] md:max-w-3xl flex justify-center"
         >
@@ -56,6 +60,6 @@ export function Header() {
                     <ThemeToggle />
                 </div>
             </nav>
-        </header>
+        </motion.header>
     );
 }

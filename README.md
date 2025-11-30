@@ -1,6 +1,6 @@
 # Vivek Ramesh Sonawale - Portfolio
 
-A modern, mobile-first portfolio website built with Next.js 14, Tailwind CSS, and Framer Motion.
+A modern, mobile-first  website built with Next.js 14, Tailwind CSS, and Framer Motion.
 Refactored with a premium, dark-themed design featuring serif typography, a tabbed experience section, and advanced interactions (Lenis scroll, Draggable stack).
 
 ## 🤖 Chatbot Setup

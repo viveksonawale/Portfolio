@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "portfolio",
+    default: "Port Vivek",
     template: "%s | Vivek Ramesh Sonawale",
   },
   description: "Java Full-Stack Dev • Building clean backend systems & polished frontends. Expert in Java, Spring Boot, React, and Next.js.",
