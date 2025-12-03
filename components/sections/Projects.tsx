@@ -11,18 +11,18 @@ const projects = [
         title: "FileCon",
         description: "A versatile file converter application supporting various formats including PDF, DOCX, JPG, and PNG. Features drag-and-drop functionality and dark mode.",
         tags: ["React", "Next.js", "File Processing", "TailwindCSS"],
-        github: "#",
-        demo: "#",
+        github: "https://github.com/viveksonawale/FileCon.git",
+        demo: "https://file-con.vercel.app/",
         image: "/projects/filecon.png",
         status: "working"
     },
     {
-        title: "Resume Builder",
+        title: "Ai Resume Builder",
         description: "An interactive resume builder helping users create professional resumes with ease. Customizable templates and real-time preview.",
-        tags: ["React", "Next.js", "PDF Generation", "Forms"],
-        github: "#",
-        demo: "#",
-        image: "",
+        tags: ["Spring Boot", "Next.js", "OpenAI"],
+        github: "https://github.com/viveksonawale/ResuMax.git",
+        demo: "https://resustack-ai.vercel.app/",
+        image: "/projects/resume-builder.png",
         status: "working"
     },
     {
@@ -79,9 +79,9 @@ export function Projects() {
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
                                 className="h-full"
                             >
-                                <Card className="h-full bg-card/50 hover:bg-card border-border/50 transition-all duration-300 hover:shadow-lg flex flex-col overflow-hidden group">
+                                <Card className="h-full bg-card/50 hover:bg-card border-border/50 transition-all duration-300 hover:shadow-lg flex flex-col p-4 rounded-xl group">
                                     <a href={project.demo !== "#" ? project.demo : project.github} target="_blank" rel="noopener noreferrer" className="block cursor-pointer">
-                                        <div className="relative h-48 w-full bg-muted/50 overflow-hidden">
+                                        <div className="relative aspect-video w-full bg-muted/50 overflow-hidden rounded-lg mb-4 border border-border/50">
                                             {project.image ? (
                                                 <Image
                                                     src={project.image}
@@ -95,43 +95,43 @@ export function Projects() {
                                                 </div>
                                             )}
                                         </div>
-                                        <CardHeader className="flex flex-row justify-between items-start space-y-0 gap-2">
-                                            <CardTitle className="text-xl font-bold font-serif group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                                            {project.status === "working" && (
-                                                <span className="text-[10px] font-medium px-2 py-1 rounded-full bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 whitespace-nowrap shrink-0">
-                                                    Working On
-                                                </span>
-                                            )}
-                                        </CardHeader>
-                                        <CardContent className="flex-grow space-y-4">
+                                        <div className="space-y-2 mb-4">
+                                            <div className="flex justify-between items-start">
+                                                <h3 className="text-xl font-bold font-serif group-hover:text-primary transition-colors">{project.title}</h3>
+                                                {project.status === "working" && (
+                                                    <span className="text-[10px] font-medium px-2 py-1 rounded-full bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 whitespace-nowrap shrink-0">
+                                                        Working On
+                                                    </span>
+                                                )}
+                                            </div>
                                             <p className="text-muted-foreground text-sm leading-relaxed">
                                                 {project.description}
                                             </p>
-                                        </CardContent>
+                                        </div>
                                     </a>
-                                    <CardFooter className="flex flex-col gap-4 items-start mt-auto">
+                                    <div className="mt-auto space-y-4">
                                         <div className="flex flex-wrap gap-2">
                                             {project.tags.map((tag) => (
-                                                <span key={tag} className="text-[10px] px-2 py-1 rounded-full bg-secondary/50 text-secondary-foreground border border-border/50">
+                                                <span key={tag} className="text-xs px-2.5 py-1 rounded-md bg-secondary/50 text-secondary-foreground border border-border/50 font-medium">
                                                     {tag}
                                                 </span>
                                             ))}
                                         </div>
-                                        <div className="flex gap-3 w-full pt-2">
-                                            <Button variant="outline" size="sm" className="flex-1 gap-2" asChild>
+                                        <div className="flex gap-3 w-full">
+                                            <Button variant="outline" size="sm" className="flex-1 gap-2 text-xs h-9" asChild>
                                                 <a href={project.github} target="_blank" rel="noopener noreferrer">
                                                     <Github className="w-4 h-4" />
                                                     View Source
                                                 </a>
                                             </Button>
-                                            <Button size="sm" className="flex-1 gap-2" asChild>
+                                            <Button size="sm" className="flex-1 gap-2 text-xs h-9" asChild>
                                                 <a href={project.demo} target="_blank" rel="noopener noreferrer">
                                                     <ExternalLink className="w-4 h-4" />
                                                     Visit Website
                                                 </a>
                                             </Button>
                                         </div>
-                                    </CardFooter>
+                                    </div>
                                 </Card>
                             </motion.div>
                         ))}
